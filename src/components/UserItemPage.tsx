@@ -32,7 +32,6 @@ const UserItemPage: FC = () => {
     <div>
       <h2 style={{paddingTop: 10}}>USER: </h2>
       <div>{user?.name}: {user?.email}</div>
-
       <button onClick={() =>  navigate('/users')}>Back</button>
     </div>
   );
