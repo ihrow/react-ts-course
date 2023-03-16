@@ -6,6 +6,7 @@ import axios from "axios";
 import UserItem from "./components/UserItem";
 import List from "./components/List";
 import TodoItem from "./components/TodoItem";
+import EventsExample from "./components/EventsExample";
 
 const App = () => {
 
@@ -49,6 +50,7 @@ const App = () => {
 
   return (
     <div>
+      <EventsExample />
       <Card onClick={(num) => console.log(num)} variant={CardVariant.outlined} width="200px" height="200px">
         <button>Button!</button>
       </Card>
