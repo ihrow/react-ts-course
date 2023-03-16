@@ -1,11 +1,11 @@
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 
 interface CardProps {
   width?: string;
   height?: string;
   children?: React.ReactNode;
   variant: CardVariant,
-  onClick: () => void;
+  onClick: (num: number) => void;
 }
 
 export enum CardVariant {
@@ -14,24 +14,25 @@ export enum CardVariant {
 }
 
 const Card: FC<CardProps> =
-    ({
-       width,
-       height,
-       variant,
-       onClick,
-       children
-     }) => {
-      return (
-          <div style={{
-            width, height,
-            border: variant === CardVariant.outlined ? '1px solid gray' : 'none',
-            background: variant === CardVariant.primary ? 'lightgray' : 'none '
-          }}
-               onClick={onClick}
-          >
-            {children}
-          </div>
-      );
-    };
+  ({
+     width,
+     height,
+     variant,
+     onClick,
+     children
+   }) => {
+  const [state, setState] = useState(0);
+    return (
+      <div style={{
+        width, height,
+        border: variant === CardVariant.outlined ? '1px solid gray' : 'none',
+        background: variant === CardVariant.primary ? 'lightgray' : 'none '
+      }}
+           onClick={() => onClick(state)}
+      >
+        {children}
+      </div>
+    );
+  };
 
 export default Card;
